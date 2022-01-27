@@ -1,4 +1,4 @@
-package Tests;
+package Tests.January_26_2022;
 
 import java.util.Scanner;
 
