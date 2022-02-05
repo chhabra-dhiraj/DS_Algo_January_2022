@@ -18,48 +18,23 @@ public class SubsetsArray {
     }
 
     public static void subsets(int[] arr) {
-
-
         for(int i = 0; i < arr.length; i++) {
-            System.out.print("_\t");
+            straightSets(i, arr);
         }
+    }
 
-        System.out.println();
-
-        for(int i = 0; i < arr.length; i++) {
-            for (int size = 0; size < arr.length - i; size++) {
-
-                if(size != 0) {
-                    for (int k = i + 1; k < arr.length; k++) {
-                        int j = 0;
-                        while (j < arr.length) {
-                            if (j == i) {
-                                System.out.print(arr[j] + "\t");
-                            } else if (size > 0 && j >= k && j - i <= size) {
-                                System.out.print(arr[j] + "\t");
-                            } else {
-                                System.out.print("_\t");
-                            }
-                            j++;
-                        }
-                        System.out.println();
-                    }
+    public static void straightSets(int index, int[] arr) {
+        int level = 0;
+        for(int i = index; i < arr.length; i++) {
+            for(int j = 0; j < arr.length; j++) {
+                if(j >=index && j < arr.length - level) {
+                    System.out.print(arr[j] + "\t");
                 } else {
-                    int j = 0;
-                    while (j < arr.length) {
-                        if (j == i) {
-                            System.out.print(arr[j] + "\t");
-                        } else if (size > 0 && j > i && j - i <= size) {
-                            System.out.print(arr[j] + "\t");
-                        } else {
-                            System.out.print("_\t");
-                        }
-                        j++;
-                    }
-                    System.out.println();
+                    System.out.print("_\t");
                 }
             }
+            level++;
+            System.out.println();
         }
-
     }
 }
